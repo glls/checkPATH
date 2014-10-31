@@ -75,7 +75,7 @@ procedure TFormMain.GetIt;
 begin
   paths.Clear;
   paths.StrictDelimiter := True;
-  paths.Delimiter := ';';
+  paths.Delimiter := PathSeparator;
   paths.DelimitedText := GetEnvironmentVariable('PATH');
   ListBox.Clear;
   ListBox.Items := paths;

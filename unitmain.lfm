@@ -1,7 +1,7 @@
 object FormMain: TFormMain
-  Left = 420
+  Left = 354
   Height = 370
-  Top = 217
+  Top = 203
   Width = 580
   Caption = 'checkPATH v1.0'
   ClientHeight = 370
@@ -11,7 +11,7 @@ object FormMain: TFormMain
   OnShow = FormShow
   ParentFont = True
   Position = poDefaultPosOnly
-  LCLVersion = '1.2.4.0'
+  LCLVersion = '1.2.6.0'
   object ListBox: TListBox
     Left = 0
     Height = 370
@@ -21,8 +21,10 @@ object FormMain: TFormMain
     ItemHeight = 0
     OnDrawItem = ListBoxDrawItem
     PopupMenu = PopupMenu1
+    ScrollWidth = 578
     Style = lbOwnerDrawFixed
     TabOrder = 0
+    TopIndex = -1
   end
   object PopupMenu1: TPopupMenu
     left = 142
