@@ -1,6 +1,6 @@
 checkPATH
 =========
-by George Litos (Oct 2014), made with [Lazarus](http://www.lazarus.freepascal.org/) 
+by George Litos (Oct 2014)
 
 A small application to easily distinguish invalid paths in your environment variables.
 
