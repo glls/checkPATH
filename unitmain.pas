@@ -115,5 +115,6 @@ begin
 end;
 
 //TODO: export to text file
+// you must rerun program to update PATH, so refresh only to re-check paths
 
 end.

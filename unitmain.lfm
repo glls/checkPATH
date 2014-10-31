@@ -24,7 +24,6 @@ object FormMain: TFormMain
     ScrollWidth = 578
     Style = lbOwnerDrawFixed
     TabOrder = 0
-    TopIndex = -1
   end
   object PopupMenu1: TPopupMenu
     left = 142
