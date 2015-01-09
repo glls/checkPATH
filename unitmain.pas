@@ -15,8 +15,10 @@ type
   TFormMain = class(TForm)
     ListBox: TListBox;
     MenuItem1: TMenuItem;
+    MenuExport: TMenuItem;
     MenuRefresh: TMenuItem;
     PopupMenu1: TPopupMenu;
+    SaveDialog1: TSaveDialog;
     procedure ButtonCheckClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -24,6 +26,7 @@ type
     procedure ListBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
     procedure MenuItem1Click(Sender: TObject);
+    procedure MenuExportClick(Sender: TObject);
     procedure MenuRefreshClick(Sender: TObject);
   private
     { private declarations }
@@ -109,12 +112,17 @@ begin
   Close;
 end;
 
+procedure TFormMain.MenuExportClick(Sender: TObject);
+begin
+  if SaveDialog1.Execute then
+    begin
+      paths.SaveToFile(SaveDialog1.FileName);
+    end;
+end;
+
 procedure TFormMain.MenuRefreshClick(Sender: TObject);
 begin
   GetIt;
 end;
-
-//TODO: export to text file
-// you must rerun program to update PATH, so refresh only to re-check paths
 
 end.
