@@ -11,7 +11,7 @@ object FormMain: TFormMain
   OnShow = FormShow
   ParentFont = True
   Position = poDefaultPosOnly
-  LCLVersion = '1.2.6.0'
+  LCLVersion = '1.2.4.0'
   object ListBox: TListBox
     Left = 0
     Height = 370
@@ -33,9 +33,19 @@ object FormMain: TFormMain
       ShortCut = 116
       OnClick = MenuRefreshClick
     end
+    object MenuExport: TMenuItem
+      Caption = 'Export...'
+      OnClick = MenuExportClick
+    end
     object MenuItem1: TMenuItem
       Caption = 'E&xit'
       OnClick = MenuItem1Click
     end
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '.txt'
+    Filter = 'Text file (*.txt)|*.txt'
+    left = 224
+    top = 58
   end
 end
