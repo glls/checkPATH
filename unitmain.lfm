@@ -3,7 +3,7 @@ object FormMain: TFormMain
   Height = 370
   Top = 203
   Width = 580
-  Caption = 'checkPATH v1.0'
+  Caption = 'checkPATH v1.1'
   ClientHeight = 370
   ClientWidth = 580
   OnCreate = FormCreate
@@ -30,11 +30,18 @@ object FormMain: TFormMain
     top = 58
     object MenuRefresh: TMenuItem
       Caption = '&Refresh'
-      ShortCut = 116
+      ShortCut = 16466
+      ShortCutKey2 = 116
       OnClick = MenuRefreshClick
+    end
+    object MenuCopy: TMenuItem
+      Caption = '&Copy'
+      ShortCut = 16451
+      OnClick = MenuCopyClick
     end
     object MenuExport: TMenuItem
       Caption = 'Export...'
+      ShortCut = 16453
       OnClick = MenuExportClick
     end
     object MenuItem1: TMenuItem

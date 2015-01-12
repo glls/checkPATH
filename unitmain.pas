@@ -16,6 +16,7 @@ type
     ListBox: TListBox;
     MenuItem1: TMenuItem;
     MenuExport: TMenuItem;
+    MenuCopy: TMenuItem;
     MenuRefresh: TMenuItem;
     PopupMenu1: TPopupMenu;
     SaveDialog1: TSaveDialog;
@@ -25,6 +26,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure ListBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
+    procedure MenuCopyClick(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuExportClick(Sender: TObject);
     procedure MenuRefreshClick(Sender: TObject);
@@ -44,6 +46,7 @@ implementation
 {$R *.lfm}
 
 { TFormMain }
+uses Clipbrd;
 
 procedure TFormMain.ButtonCheckClick(Sender: TObject);
 var
@@ -105,6 +108,12 @@ begin
     FillRect(ARect);
     TextOut(ARect.Left, ARect.Top, (Control as TListBox).Items[Index]);
   end;
+end;
+
+procedure TFormMain.MenuCopyClick(Sender: TObject);
+begin
+  if ListBox.ItemIndex <> -1 then
+    Clipboard.AsText := ListBox.GetSelectedText;
 end;
 
 procedure TFormMain.MenuItem1Click(Sender: TObject);
