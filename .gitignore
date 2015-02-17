@@ -53,3 +53,7 @@
 __history/
 lib/
 *.~*
+
+# lazarus backups and session info
+*.bak
+*.lap
