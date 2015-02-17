@@ -1,3 +1,19 @@
+{
+Copyright 2015 George Litos
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+}
+
 unit unitMain;
 
 {$mode objfpc}{$H+}
@@ -14,25 +30,28 @@ type
 
   TFormMain = class(TForm)
     ListBox: TListBox;
-    MenuItem1: TMenuItem;
+    MenuExit: TMenuItem;
     MenuExport: TMenuItem;
     MenuCopy: TMenuItem;
+    MenuItem1: TMenuItem;
+    MenuAbout: TMenuItem;
     MenuRefresh: TMenuItem;
-    PopupMenu1: TPopupMenu;
-    SaveDialog1: TSaveDialog;
-    procedure ButtonCheckClick(Sender: TObject);
+    Popup: TPopupMenu;
+    SaveDialog: TSaveDialog;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ListBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
     procedure MenuCopyClick(Sender: TObject);
-    procedure MenuItem1Click(Sender: TObject);
+    procedure MenuExitClick(Sender: TObject);
     procedure MenuExportClick(Sender: TObject);
+    procedure MenuAboutClick(Sender: TObject);
     procedure MenuRefreshClick(Sender: TObject);
   private
     { private declarations }
     paths: TStringList;
+    function countString(s: string): integer;
   public
     { public declarations }
     procedure GetIt;
@@ -47,20 +66,6 @@ implementation
 
 { TFormMain }
 uses Clipbrd;
-
-procedure TFormMain.ButtonCheckClick(Sender: TObject);
-var
-  I: integer;
-  s: string;
-begin
-  s := GetEnvironmentVariable('PATH');
-  //  paths.Clear;
-  paths.StrictDelimiter := True;
-  paths.Delimiter := ';';
-  paths.DelimitedText := s;
-  ListBox.Items := paths;
-  ListBox.Refresh;
-end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
@@ -83,7 +88,9 @@ begin
   paths.StrictDelimiter := True;
   paths.Delimiter := PathSeparator;
   paths.DelimitedText := GetEnvironmentVariable('PATH');
-  ListBox.Clear;
+  // for testing only
+  {paths.Append(UpperCase(paths[0]));
+  paths.Append(paths[2]);}
   ListBox.Items := paths;
   ListBox.Refresh;
   ListBox.SetFocus;
@@ -102,9 +109,12 @@ begin
       Brush.Color := $F0F0F0;
 
     if not DirectoryExistsUTF8(s) then
-      font.Color := clRed
+      Font.Color := clRed
+    else if countString(s) > 1 then
+      Font.Color := clBlue
     else
-      font.Color := clDefault;
+      Font.Color := clDefault;
+
     FillRect(ARect);
     TextOut(ARect.Left, ARect.Top, (Control as TListBox).Items[Index]);
   end;
@@ -116,20 +126,46 @@ begin
     Clipboard.AsText := ListBox.GetSelectedText;
 end;
 
-procedure TFormMain.MenuItem1Click(Sender: TObject);
+procedure TFormMain.MenuExitClick(Sender: TObject);
 begin
   Close;
 end;
 
 procedure TFormMain.MenuExportClick(Sender: TObject);
 begin
-  if SaveDialog1.Execute then
-    paths.SaveToFile(SaveDialog1.FileName);
+  if SaveDialog.Execute then
+    paths.SaveToFile(SaveDialog.FileName);
+end;
+
+procedure TFormMain.MenuAboutClick(Sender: TObject);
+begin
+  ShowMessage('checkPATH by George Litos, made with Lazarus.' +
+    sLineBreak + 'Display path enviroment directories in a list, ' +
+    'non existing directories are colored red, duplicates are blue.' +
+    sLineBreak + sLineBreak + 'https://github.com/glls/checkPATH');
 end;
 
 procedure TFormMain.MenuRefreshClick(Sender: TObject);
 begin
   GetIt;
+end;
+
+function TFormMain.countString(s: string): integer;
+var
+  i: integer;
+  c: integer;
+begin
+  c := 0;
+  for i := 0 to paths.Count - 1 do
+  begin
+{$IFDEF MSWINDOWS}
+    if (UpperCase(s) = UpperCase(paths.Strings[i])) then
+{$ELSE}
+    if (s = paths.Strings[i]) then
+{$ENDIF}
+        Inc(c);
+  end;
+  Result := c;
 end;
 
 end.

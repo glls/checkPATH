@@ -2,10 +2,10 @@ object FormMain: TFormMain
   Left = 354
   Height = 370
   Top = 203
-  Width = 580
-  Caption = 'checkPATH v1.1'
+  Width = 584
+  Caption = 'checkPATH v1.2'
   ClientHeight = 370
-  ClientWidth = 580
+  ClientWidth = 584
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
@@ -16,16 +16,16 @@ object FormMain: TFormMain
     Left = 0
     Height = 370
     Top = 0
-    Width = 580
+    Width = 584
     Align = alClient
     ItemHeight = 0
     OnDrawItem = ListBoxDrawItem
-    PopupMenu = PopupMenu1
+    PopupMenu = Popup
     ScrollWidth = 578
     Style = lbOwnerDrawFixed
     TabOrder = 0
   end
-  object PopupMenu1: TPopupMenu
+  object Popup: TPopupMenu
     left = 142
     top = 58
     object MenuRefresh: TMenuItem
@@ -45,11 +45,18 @@ object FormMain: TFormMain
       OnClick = MenuExportClick
     end
     object MenuItem1: TMenuItem
+      Caption = '-'
+    end
+    object MenuAbout: TMenuItem
+      Caption = '&About'
+      OnClick = MenuAboutClick
+    end
+    object MenuExit: TMenuItem
       Caption = 'E&xit'
-      OnClick = MenuItem1Click
+      OnClick = MenuExitClick
     end
   end
-  object SaveDialog1: TSaveDialog
+  object SaveDialog: TSaveDialog
     DefaultExt = '.txt'
     Filter = 'Text file (*.txt)|*.txt'
     left = 224

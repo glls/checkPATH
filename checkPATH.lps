@@ -4,17 +4,15 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="2">
+    <Units Count="8">
       <Unit0>
         <Filename Value="checkPATH.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="checkPATH"/>
-        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="20"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
+        <TopLine Value="4"/>
+        <CursorPos X="1" Y="17"/>
+        <UsageCount Value="24"/>
       </Unit0>
       <Unit1>
         <Filename Value="unitmain.pas"/>
@@ -26,45 +24,144 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="34"/>
-        <CursorPos X="70" Y="61"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="73"/>
+        <CursorPos X="15" Y="92"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\objpas\classes\classesh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="681"/>
+        <CursorPos X="19" Y="693"/>
+        <UsageCount Value="10"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="C:\lazarus\lcl\graphics.pp"/>
+        <UnitName Value="Graphics"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="558"/>
+        <CursorPos X="19" Y="574"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\objpas\objpas.pp"/>
+        <UnitName Value="objpas"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="88"/>
+        <CursorPos X="45" Y="116"/>
+        <UsageCount Value="10"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="README.md"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="84" Y="3"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="LICENSE"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="169"/>
+        <CursorPos X="1" Y="202"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\lazarus\lcl\interfaces\carbon\carbonbars.pp"/>
+        <UnitName Value="CarbonBars"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="10"/>
+      </Unit7>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="7" HistoryIndex="6">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
         <Filename Value="unitmain.pas"/>
-        <Caret Line="123" Column="9" TopLine="88"/>
+        <Caret Line="132" Column="30" TopLine="104"/>
       </Position1>
       <Position2>
         <Filename Value="unitmain.pas"/>
-        <Caret Line="130" Column="9" TopLine="92"/>
+        <Caret Line="71" Column="34" TopLine="58"/>
       </Position2>
       <Position3>
         <Filename Value="unitmain.pas"/>
-        <Caret Line="115" Column="29" TopLine="96"/>
+        <Caret Line="72" Column="34" TopLine="59"/>
       </Position3>
       <Position4>
         <Filename Value="unitmain.pas"/>
-        <Caret Line="114" Column="3" TopLine="96"/>
+        <Caret Line="126" Column="28" TopLine="106"/>
       </Position4>
       <Position5>
         <Filename Value="unitmain.pas"/>
-        <Caret Line="115" Column="14" TopLine="96"/>
+        <Caret Line="133" Column="28" TopLine="108"/>
       </Position5>
       <Position6>
-        <Filename Value="checkPATH.lpr"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="125" Column="30" TopLine="113"/>
       </Position6>
       <Position7>
         <Filename Value="unitmain.pas"/>
-        <Caret Line="49" Column="1" TopLine="32"/>
+        <Caret Line="129" Column="42" TopLine="108"/>
       </Position7>
+      <Position8>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="141" Column="46" TopLine="113"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="25" Column="1" TopLine="19"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="127" Column="112" TopLine="113"/>
+      </Position10>
+      <Position11>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="108" Column="23" TopLine="108"/>
+      </Position11>
+      <Position12>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="144" Column="1" TopLine="121"/>
+      </Position12>
+      <Position13>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="148" Column="37" TopLine="115"/>
+      </Position13>
+      <Position14>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="98" Column="19" TopLine="78"/>
+      </Position14>
+      <Position15>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="97" Column="5" TopLine="82"/>
+      </Position15>
+      <Position16>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="98" Column="35" TopLine="80"/>
+      </Position16>
+      <Position17>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="141" Column="38" TopLine="113"/>
+      </Position17>
+      <Position18>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="15" Column="2" TopLine="1"/>
+      </Position18>
+      <Position19>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="8" Column="38" TopLine="1"/>
+      </Position19>
+      <Position20>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position20>
     </JumpHistory>
   </ProjectSession>
   <EditorMacros Count="0"/>
