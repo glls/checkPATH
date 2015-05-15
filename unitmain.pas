@@ -52,6 +52,7 @@ type
     { private declarations }
     paths: TStringList;
     function countString(s: string): integer;
+    procedure expandSysVariables;
   public
     { public declarations }
     procedure GetIt;
@@ -88,12 +89,41 @@ begin
   paths.StrictDelimiter := True;
   paths.Delimiter := PathSeparator;
   paths.DelimitedText := GetEnvironmentVariable('PATH');
+  expandSysVariables;
   // for testing only
   {paths.Append(UpperCase(paths[0]));
   paths.Append(paths[2]);}
   ListBox.Items := paths;
   ListBox.Refresh;
   ListBox.SetFocus;
+end;
+
+procedure TFormMain.expandSysVariables;
+var
+  i, p1: integer;
+  s: string;
+begin
+  for i := 0 to paths.Count - 1 do
+  begin
+    s := paths.Strings[i];
+{$IFDEF MSWINDOWS}
+    p1 := Pos('%', s);
+    if p1 > 0 then
+    begin
+      Delete(s, 1, p1);
+      p1 := Pos('%', s);
+      if p1 <> 0 then
+      begin
+        s := LeftStr(s, p1 - 1);
+        paths.Strings[i] := StringReplace(paths.Strings[i],
+          '%' + s + '%', GetEnvironmentVariable(s), [rfIgnoreCase, rfReplaceAll]);
+        //ShowMessage(paths.Strings[i]);
+      end;
+    end;
+{$ELSE}
+    //TODO
+{$ENDIF}
+  end;
 end;
 
 procedure TFormMain.ListBoxDrawItem(Control: TWinControl; Index: integer;
@@ -161,7 +191,7 @@ begin
 {$IFDEF MSWINDOWS}
     if (UpperCase(s) = UpperCase(paths.Strings[i])) then
 {$ELSE}
-    if (s = paths.Strings[i]) then
+      if (s = paths.Strings[i]) then
 {$ENDIF}
         Inc(c);
   end;
