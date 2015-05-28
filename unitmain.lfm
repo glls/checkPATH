@@ -21,7 +21,6 @@ object FormMain: TFormMain
     ItemHeight = 0
     OnDrawItem = ListBoxDrawItem
     PopupMenu = Popup
-    ScrollWidth = 578
     Style = lbOwnerDrawFixed
     TabOrder = 0
   end

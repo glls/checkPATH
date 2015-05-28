@@ -121,7 +121,8 @@ begin
       end;
     end;
 {$ELSE}
-    //TODO
+    // linux and mac does not save variables, expand by default
+    // and have different scope if run from console/terminal or from desktop
 {$ENDIF}
   end;
 end;
